@@ -1,0 +1,11 @@
+[package]
+name = "mav"
+version = "0.1.0"
+authors = ["tekjar <k.teza1@gmail.com>"]
+
+[dependencies]
+serde = "1"
+serde_json = "1"
+serde_derive = "1"
+quote = "0.4"
+syn = "0.12"

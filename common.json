@@ -1,0 +1,3406 @@
+{
+  "mavlink": {
+    "version": "2",
+    "enums": {
+      "enum": [
+        {
+          "description": "Commands to be executed by the MAV. They can be executed on user request,\n      or as part of a mission script. If the action is used in a mission, the parameter mapping\n      to the waypoint/mission message is as follows:\n      Param 1, Param 2, Param 3, Param 4, X: Param 5, Y:Param 6, Z:Param 7. This command list is similar what\n      ARINC 424 is for commercial aircraft: A data format how to interpret waypoint/mission data.",
+          "entry": [
+            {
+              "description": "Navigate to waypoint.",
+              "param": [
+                {
+                  "_index": "1",
+                  "__text": "Hold time in decimal seconds. (ignored by fixed wing, time to stay at waypoint for rotary wing)"
+                },
+                {
+                  "_index": "2",
+                  "__text": "Acceptance radius in meters (if the sphere with this radius is hit, the waypoint counts as reached)"
+                },
+                {
+                  "_index": "3",
+                  "__text": "0 to pass through the WP, if > 0 radius in meters to pass by WP. Positive value for clockwise orbit, negative value for counter-clockwise orbit. Allows trajectory control."
+                },
+                {
+                  "_index": "4",
+                  "__text": "Desired yaw angle at waypoint (rotary wing)"
+                },
+                {
+                  "_index": "5",
+                  "__text": "Latitude"
+                },
+                {
+                  "_index": "6",
+                  "__text": "Longitude"
+                },
+                {
+                  "_index": "7",
+                  "__text": "Altitude"
+                }
+              ],
+              "_value": "16",
+              "_name": "MAV_CMD_NAV_WAYPOINT"
+            },
+            {
+              "description": "Loiter around this waypoint an unlimited amount of time",
+              "param": [
+                {
+                  "_index": "1",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "2",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "3",
+                  "__text": "Radius around waypoint, in meters. If positive loiter clockwise, else counter-clockwise"
+                },
+                {
+                  "_index": "4",
+                  "__text": "Desired yaw angle."
+                },
+                {
+                  "_index": "5",
+                  "__text": "Latitude"
+                },
+                {
+                  "_index": "6",
+                  "__text": "Longitude"
+                },
+                {
+                  "_index": "7",
+                  "__text": "Altitude"
+                }
+              ],
+              "_value": "17",
+              "_name": "MAV_CMD_NAV_LOITER_UNLIM"
+            },
+            {
+              "description": "Loiter around this waypoint for X turns",
+              "param": [
+                {
+                  "_index": "1",
+                  "__text": "Turns"
+                },
+                {
+                  "_index": "2",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "3",
+                  "__text": "Radius around waypoint, in meters. If positive loiter clockwise, else counter-clockwise"
+                },
+                {
+                  "_index": "4",
+                  "__text": "Desired yaw angle."
+                },
+                {
+                  "_index": "5",
+                  "__text": "Latitude"
+                },
+                {
+                  "_index": "6",
+                  "__text": "Longitude"
+                },
+                {
+                  "_index": "7",
+                  "__text": "Altitude"
+                }
+              ],
+              "_value": "18",
+              "_name": "MAV_CMD_NAV_LOITER_TURNS"
+            },
+            {
+              "description": "Loiter around this waypoint for X seconds",
+              "param": [
+                {
+                  "_index": "1",
+                  "__text": "Seconds (decimal)"
+                },
+                {
+                  "_index": "2",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "3",
+                  "__text": "Radius around waypoint, in meters. If positive loiter clockwise, else counter-clockwise"
+                },
+                {
+                  "_index": "4",
+                  "__text": "Desired yaw angle."
+                },
+                {
+                  "_index": "5",
+                  "__text": "Latitude"
+                },
+                {
+                  "_index": "6",
+                  "__text": "Longitude"
+                },
+                {
+                  "_index": "7",
+                  "__text": "Altitude"
+                }
+              ],
+              "_value": "19",
+              "_name": "MAV_CMD_NAV_LOITER_TIME"
+            },
+            {
+              "description": "Return to launch location",
+              "param": [
+                {
+                  "_index": "1",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "2",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "3",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "4",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "5",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "6",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "7",
+                  "__text": "Empty"
+                }
+              ],
+              "_value": "20",
+              "_name": "MAV_CMD_NAV_RETURN_TO_LAUNCH"
+            },
+            {
+              "description": "Land at location",
+              "param": [
+                {
+                  "_index": "1",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "2",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "3",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "4",
+                  "__text": "Desired yaw angle."
+                },
+                {
+                  "_index": "5",
+                  "__text": "Latitude"
+                },
+                {
+                  "_index": "6",
+                  "__text": "Longitude"
+                },
+                {
+                  "_index": "7",
+                  "__text": "Altitude"
+                }
+              ],
+              "_value": "21",
+              "_name": "MAV_CMD_NAV_LAND"
+            },
+            {
+              "description": "Takeoff from ground / hand",
+              "param": [
+                {
+                  "_index": "1",
+                  "__text": "Minimum pitch (if airspeed sensor present), desired pitch without sensor"
+                },
+                {
+                  "_index": "2",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "3",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "4",
+                  "__text": "Yaw angle (if magnetometer present), ignored without magnetometer"
+                },
+                {
+                  "_index": "5",
+                  "__text": "Latitude"
+                },
+                {
+                  "_index": "6",
+                  "__text": "Longitude"
+                },
+                {
+                  "_index": "7",
+                  "__text": "Altitude"
+                }
+              ],
+              "_value": "22",
+              "_name": "MAV_CMD_NAV_TAKEOFF"
+            },
+            {
+              "description": "Sets the region of interest (ROI) for a sensor set or the\n            vehicle itself. This can then be used by the vehicles control\n            system to control the vehicle attitude and the attitude of various\n            sensors such as cameras.",
+              "param": [
+                {
+                  "_index": "1",
+                  "__text": "Region of intereset mode. (see MAV_ROI enum)"
+                },
+                {
+                  "_index": "2",
+                  "__text": "Waypoint index/ target ID. (see MAV_ROI enum)"
+                },
+                {
+                  "_index": "3",
+                  "__text": "ROI index (allows a vehicle to manage multiple ROI's)"
+                },
+                {
+                  "_index": "4",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "5",
+                  "__text": "x the location of the fixed ROI (see MAV_FRAME)"
+                },
+                {
+                  "_index": "6",
+                  "__text": "y"
+                },
+                {
+                  "_index": "7",
+                  "__text": "z"
+                }
+              ],
+              "_value": "80",
+              "_name": "MAV_CMD_NAV_ROI"
+            },
+            {
+              "description": "Control autonomous path planning on the MAV.",
+              "param": [
+                {
+                  "_index": "1",
+                  "__text": "0: Disable local obstacle avoidance / local path planning (without resetting map), 1: Enable local path planning, 2: Enable and reset local path planning"
+                },
+                {
+                  "_index": "2",
+                  "__text": "0: Disable full path planning (without resetting map), 1: Enable, 2: Enable and reset map/occupancy grid, 3: Enable and reset planned route, but not occupancy grid"
+                },
+                {
+                  "_index": "3",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "4",
+                  "__text": "Yaw angle at goal, in compass degrees, [0..360]"
+                },
+                {
+                  "_index": "5",
+                  "__text": "Latitude/X of goal"
+                },
+                {
+                  "_index": "6",
+                  "__text": "Longitude/Y of goal"
+                },
+                {
+                  "_index": "7",
+                  "__text": "Altitude/Z of goal"
+                }
+              ],
+              "_value": "81",
+              "_name": "MAV_CMD_NAV_PATHPLANNING"
+            },
+            {
+              "description": "NOP - This command is only used to mark the upper limit of the NAV/ACTION commands in the enumeration",
+              "param": [
+                {
+                  "_index": "1",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "2",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "3",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "4",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "5",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "6",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "7",
+                  "__text": "Empty"
+                }
+              ],
+              "_value": "95",
+              "_name": "MAV_CMD_NAV_LAST"
+            },
+            {
+              "description": "Delay mission state machine.",
+              "param": [
+                {
+                  "_index": "1",
+                  "__text": "Delay in seconds (decimal)"
+                },
+                {
+                  "_index": "2",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "3",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "4",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "5",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "6",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "7",
+                  "__text": "Empty"
+                }
+              ],
+              "_value": "112",
+              "_name": "MAV_CMD_CONDITION_DELAY"
+            },
+            {
+              "description": "Ascend/descend at rate.  Delay mission state machine until desired altitude reached.",
+              "param": [
+                {
+                  "_index": "1",
+                  "__text": "Descent / Ascend rate (m/s)"
+                },
+                {
+                  "_index": "2",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "3",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "4",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "5",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "6",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "7",
+                  "__text": "Finish Altitude"
+                }
+              ],
+              "_value": "113",
+              "_name": "MAV_CMD_CONDITION_CHANGE_ALT"
+            },
+            {
+              "description": "Delay mission state machine until within desired distance of next NAV point.",
+              "param": [
+                {
+                  "_index": "1",
+                  "__text": "Distance (meters)"
+                },
+                {
+                  "_index": "2",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "3",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "4",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "5",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "6",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "7",
+                  "__text": "Empty"
+                }
+              ],
+              "_value": "114",
+              "_name": "MAV_CMD_CONDITION_DISTANCE"
+            },
+            {
+              "description": "Reach a certain target angle.",
+              "param": [
+                {
+                  "_index": "1",
+                  "__text": "target angle: [0-360], 0 is north"
+                },
+                {
+                  "_index": "2",
+                  "__text": "speed during yaw change:[deg per second]"
+                },
+                {
+                  "_index": "3",
+                  "__text": "direction: negative: counter clockwise, positive: clockwise [-1,1]"
+                },
+                {
+                  "_index": "4",
+                  "__text": "relative offset or absolute angle: [ 1,0]"
+                },
+                {
+                  "_index": "5",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "6",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "7",
+                  "__text": "Empty"
+                }
+              ],
+              "_value": "115",
+              "_name": "MAV_CMD_CONDITION_YAW"
+            },
+            {
+              "description": "NOP - This command is only used to mark the upper limit of the CONDITION commands in the enumeration",
+              "param": [
+                {
+                  "_index": "1",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "2",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "3",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "4",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "5",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "6",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "7",
+                  "__text": "Empty"
+                }
+              ],
+              "_value": "159",
+              "_name": "MAV_CMD_CONDITION_LAST"
+            },
+            {
+              "description": "Set system mode.",
+              "param": [
+                {
+                  "_index": "1",
+                  "__text": "Mode, as defined by ENUM MAV_MODE"
+                },
+                {
+                  "_index": "2",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "3",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "4",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "5",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "6",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "7",
+                  "__text": "Empty"
+                }
+              ],
+              "_value": "176",
+              "_name": "MAV_CMD_DO_SET_MODE"
+            },
+            {
+              "description": "Jump to the desired command in the mission list.  Repeat this action only the specified number of times",
+              "param": [
+                {
+                  "_index": "1",
+                  "__text": "Sequence number"
+                },
+                {
+                  "_index": "2",
+                  "__text": "Repeat count"
+                },
+                {
+                  "_index": "3",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "4",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "5",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "6",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "7",
+                  "__text": "Empty"
+                }
+              ],
+              "_value": "177",
+              "_name": "MAV_CMD_DO_JUMP"
+            },
+            {
+              "description": "Change speed and/or throttle set points.",
+              "param": [
+                {
+                  "_index": "1",
+                  "__text": "Speed type (0=Airspeed, 1=Ground Speed)"
+                },
+                {
+                  "_index": "2",
+                  "__text": "Speed  (m/s, -1 indicates no change)"
+                },
+                {
+                  "_index": "3",
+                  "__text": "Throttle  ( Percent, -1 indicates no change)"
+                },
+                {
+                  "_index": "4",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "5",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "6",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "7",
+                  "__text": "Empty"
+                }
+              ],
+              "_value": "178",
+              "_name": "MAV_CMD_DO_CHANGE_SPEED"
+            },
+            {
+              "description": "Changes the home location either to the current location or a specified location.",
+              "param": [
+                {
+                  "_index": "1",
+                  "__text": "Use current (1=use current location, 0=use specified location)"
+                },
+                {
+                  "_index": "2",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "3",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "4",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "5",
+                  "__text": "Latitude"
+                },
+                {
+                  "_index": "6",
+                  "__text": "Longitude"
+                },
+                {
+                  "_index": "7",
+                  "__text": "Altitude"
+                }
+              ],
+              "_value": "179",
+              "_name": "MAV_CMD_DO_SET_HOME"
+            },
+            {
+              "description": "Set a system parameter.  Caution!  Use of this command requires knowledge of the numeric enumeration value of the parameter.",
+              "param": [
+                {
+                  "_index": "1",
+                  "__text": "Parameter number"
+                },
+                {
+                  "_index": "2",
+                  "__text": "Parameter value"
+                },
+                {
+                  "_index": "3",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "4",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "5",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "6",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "7",
+                  "__text": "Empty"
+                }
+              ],
+              "_value": "180",
+              "_name": "MAV_CMD_DO_SET_PARAMETER"
+            },
+            {
+              "description": "Set a relay to a condition.",
+              "param": [
+                {
+                  "_index": "1",
+                  "__text": "Relay number"
+                },
+                {
+                  "_index": "2",
+                  "__text": "Setting (1=on, 0=off, others possible depending on system hardware)"
+                },
+                {
+                  "_index": "3",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "4",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "5",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "6",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "7",
+                  "__text": "Empty"
+                }
+              ],
+              "_value": "181",
+              "_name": "MAV_CMD_DO_SET_RELAY"
+            },
+            {
+              "description": "Cycle a relay on and off for a desired number of cyles with a desired period.",
+              "param": [
+                {
+                  "_index": "1",
+                  "__text": "Relay number"
+                },
+                {
+                  "_index": "2",
+                  "__text": "Cycle count"
+                },
+                {
+                  "_index": "3",
+                  "__text": "Cycle time (seconds, decimal)"
+                },
+                {
+                  "_index": "4",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "5",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "6",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "7",
+                  "__text": "Empty"
+                }
+              ],
+              "_value": "182",
+              "_name": "MAV_CMD_DO_REPEAT_RELAY"
+            },
+            {
+              "description": "Set a servo to a desired PWM value.",
+              "param": [
+                {
+                  "_index": "1",
+                  "__text": "Servo number"
+                },
+                {
+                  "_index": "2",
+                  "__text": "PWM (microseconds, 1000 to 2000 typical)"
+                },
+                {
+                  "_index": "3",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "4",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "5",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "6",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "7",
+                  "__text": "Empty"
+                }
+              ],
+              "_value": "183",
+              "_name": "MAV_CMD_DO_SET_SERVO"
+            },
+            {
+              "description": "Cycle a between its nominal setting and a desired PWM for a desired number of cycles with a desired period.",
+              "param": [
+                {
+                  "_index": "1",
+                  "__text": "Servo number"
+                },
+                {
+                  "_index": "2",
+                  "__text": "PWM (microseconds, 1000 to 2000 typical)"
+                },
+                {
+                  "_index": "3",
+                  "__text": "Cycle count"
+                },
+                {
+                  "_index": "4",
+                  "__text": "Cycle time (seconds)"
+                },
+                {
+                  "_index": "5",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "6",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "7",
+                  "__text": "Empty"
+                }
+              ],
+              "_value": "184",
+              "_name": "MAV_CMD_DO_REPEAT_SERVO"
+            },
+            {
+              "description": "Control onboard camera capturing.",
+              "param": [
+                {
+                  "_index": "1",
+                  "__text": "Camera ID (-1 for all)"
+                },
+                {
+                  "_index": "2",
+                  "__text": "Transmission: 0: disabled, 1: enabled compressed, 2: enabled raw"
+                },
+                {
+                  "_index": "3",
+                  "__text": "Transmission mode: 0: video stream, >0: single images every n seconds (decimal)"
+                },
+                {
+                  "_index": "4",
+                  "__text": "Recording: 0: disabled, 1: enabled compressed, 2: enabled raw"
+                },
+                {
+                  "_index": "5",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "6",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "7",
+                  "__text": "Empty"
+                }
+              ],
+              "_value": "200",
+              "_name": "MAV_CMD_DO_CONTROL_VIDEO"
+            },
+            {
+              "description": "Sets the region of interest (ROI) for a sensor set or the\n                    vehicle itself. This can then be used by the vehicles control\n                    system to control the vehicle attitude and the attitude of various\n                    devices such as cameras.\n                ",
+              "param": [
+                {
+                  "_index": "1",
+                  "__text": "Region of interest mode. (see MAV_ROI enum)"
+                },
+                {
+                  "_index": "2",
+                  "__text": "Waypoint index/ target ID. (see MAV_ROI enum)"
+                },
+                {
+                  "_index": "3",
+                  "__text": "ROI index (allows a vehicle to manage multiple cameras etc.)"
+                },
+                {
+                  "_index": "4",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "5",
+                  "__text": "x the location of the fixed ROI (see MAV_FRAME)"
+                },
+                {
+                  "_index": "6",
+                  "__text": "y"
+                },
+                {
+                  "_index": "7",
+                  "__text": "z"
+                }
+              ],
+              "_value": "201",
+              "_name": "MAV_CMD_DO_SET_ROI"
+            },
+            {
+              "description": "NOP - This command is only used to mark the upper limit of the DO commands in the enumeration",
+              "param": [
+                {
+                  "_index": "1",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "2",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "3",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "4",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "5",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "6",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "7",
+                  "__text": "Empty"
+                }
+              ],
+              "_value": "240",
+              "_name": "MAV_CMD_DO_LAST"
+            },
+            {
+              "description": "Trigger calibration. This command will be only accepted if in pre-flight mode.",
+              "param": [
+                {
+                  "_index": "1",
+                  "__text": "Gyro calibration: 0: no, 1: yes"
+                },
+                {
+                  "_index": "2",
+                  "__text": "Magnetometer calibration: 0: no, 1: yes"
+                },
+                {
+                  "_index": "3",
+                  "__text": "Ground pressure: 0: no, 1: yes"
+                },
+                {
+                  "_index": "4",
+                  "__text": "Radio calibration: 0: no, 1: yes"
+                },
+                {
+                  "_index": "5",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "6",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "7",
+                  "__text": "Empty"
+                }
+              ],
+              "_value": "241",
+              "_name": "MAV_CMD_PREFLIGHT_CALIBRATION"
+            },
+            {
+              "description": "Request storage of different parameter values and logs. This command will be only accepted if in pre-flight mode.",
+              "param": [
+                {
+                  "_index": "1",
+                  "__text": "Parameter storage: 0: READ FROM FLASH/EEPROM, 1: WRITE CURRENT TO FLASH/EEPROM"
+                },
+                {
+                  "_index": "2",
+                  "__text": "Mission storage: 0: READ FROM FLASH/EEPROM, 1: WRITE CURRENT TO FLASH/EEPROM"
+                },
+                {
+                  "_index": "3",
+                  "__text": "Reserved"
+                },
+                {
+                  "_index": "4",
+                  "__text": "Reserved"
+                },
+                {
+                  "_index": "5",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "6",
+                  "__text": "Empty"
+                },
+                {
+                  "_index": "7",
+                  "__text": "Empty"
+                }
+              ],
+              "_value": "245",
+              "_name": "MAV_CMD_PREFLIGHT_STORAGE"
+            }
+          ],
+          "_name": "MAV_CMD"
+        },
+        {
+          "description": "Data stream IDs. A data stream is not a fixed set of messages, but rather a\n     recommendation to the autopilot software. Individual autopilots may or may not obey\n     the recommended messages.\n     ",
+          "entry": [
+            {
+              "description": "Enable all data streams",
+              "_value": "0",
+              "_name": "MAV_DATA_STREAM_ALL"
+            },
+            {
+              "description": "Enable IMU_RAW, GPS_RAW, GPS_STATUS packets.",
+              "_value": "1",
+              "_name": "MAV_DATA_STREAM_RAW_SENSORS"
+            },
+            {
+              "description": "Enable GPS_STATUS, CONTROL_STATUS, AUX_STATUS",
+              "_value": "2",
+              "_name": "MAV_DATA_STREAM_EXTENDED_STATUS"
+            },
+            {
+              "description": "Enable RC_CHANNELS_SCALED, RC_CHANNELS_RAW, SERVO_OUTPUT_RAW",
+              "_value": "3",
+              "_name": "MAV_DATA_STREAM_RC_CHANNELS"
+            },
+            {
+              "description": "Enable ATTITUDE_CONTROLLER_OUTPUT, POSITION_CONTROLLER_OUTPUT, NAV_CONTROLLER_OUTPUT.",
+              "_value": "4",
+              "_name": "MAV_DATA_STREAM_RAW_CONTROLLER"
+            },
+            {
+              "description": "Enable LOCAL_POSITION, GLOBAL_POSITION/GLOBAL_POSITION_INT messages.",
+              "_value": "6",
+              "_name": "MAV_DATA_STREAM_POSITION"
+            },
+            {
+              "description": "Dependent on the autopilot",
+              "_value": "10",
+              "_name": "MAV_DATA_STREAM_EXTRA1"
+            },
+            {
+              "description": "Dependent on the autopilot",
+              "_value": "11",
+              "_name": "MAV_DATA_STREAM_EXTRA2"
+            },
+            {
+              "description": "Dependent on the autopilot",
+              "_value": "12",
+              "_name": "MAV_DATA_STREAM_EXTRA3"
+            }
+          ],
+          "_name": "MAV_DATA_STREAM"
+        },
+        {
+          "description": " The ROI (region of interest) for the vehicle. This can be\n                be used by the vehicle for camera/vehicle attitude alignment (see\n                MAV_CMD_NAV_ROI).\n            ",
+          "entry": [
+            {
+              "description": "No region of interest.",
+              "_value": "0",
+              "_name": "MAV_ROI_NONE"
+            },
+            {
+              "description": "Point toward next waypoint.",
+              "_value": "1",
+              "_name": "MAV_ROI_WPNEXT"
+            },
+            {
+              "description": "Point toward given waypoint.",
+              "_value": "2",
+              "_name": "MAV_ROI_WPINDEX"
+            },
+            {
+              "description": "Point toward fixed location.",
+              "_value": "3",
+              "_name": "MAV_ROI_LOCATION"
+            },
+            {
+              "description": "Point toward of given id.",
+              "_value": "4",
+              "_name": "MAV_ROI_TARGET"
+            }
+          ],
+          "_name": "MAV_ROI"
+        }
+      ]
+    },
+    "messages": {
+      "message": [
+        {
+          "description": "The heartbeat message shows that a system is present and responding. The type of the MAV and Autopilot hardware allow the receiving system to treat further messages from this system appropriate (e.g. by laying out the user interface based on the autopilot).",
+          "field": [
+            {
+              "_type": "uint8_t",
+              "_name": "type",
+              "__text": "Type of the MAV (quadrotor, helicopter, etc., up to 15 types, defined in MAV_TYPE ENUM)"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "autopilot",
+              "__text": "Type of the Autopilot: 0: Generic, 1: PIXHAWK, 2: SLUGS, 3: Ardupilot (up to 15 types), defined in MAV_AUTOPILOT_TYPE ENUM"
+            },
+            {
+              "_type": "uint8_t_mavlink_version",
+              "_name": "mavlink_version",
+              "__text": "MAVLink version"
+            }
+          ],
+          "_id": "0",
+          "_name": "HEARTBEAT"
+        },
+        {
+          "description": "The boot message indicates that a system is starting. The onboard software version allows to keep track of onboard soft/firmware revisions.",
+          "field": {
+            "_type": "uint32_t",
+            "_name": "version",
+            "__text": "The onboard software version"
+          },
+          "_id": "1",
+          "_name": "BOOT"
+        },
+        {
+          "description": "The system time is the time of the master clock, typically the computer clock of the main onboard computer.",
+          "field": {
+            "_type": "uint64_t",
+            "_name": "time_usec",
+            "__text": "Timestamp of the master clock in microseconds since UNIX epoch."
+          },
+          "_id": "2",
+          "_name": "SYSTEM_TIME"
+        },
+        {
+          "description": "A ping message either requesting or responding to a ping. This allows to measure the system latencies, including serial port, radio modem and UDP connections.",
+          "field": [
+            {
+              "_type": "uint32_t",
+              "_name": "seq",
+              "__text": "PING sequence"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "target_system",
+              "__text": "0: request ping from all receiving systems, if greater than 0: message is a ping response and number is the system id of the requesting system"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "target_component",
+              "__text": "0: request ping from all receiving components, if greater than 0: message is a ping response and number is the system id of the requesting system"
+            },
+            {
+              "_type": "uint64_t",
+              "_name": "time",
+              "__text": "Unix timestamp in microseconds"
+            }
+          ],
+          "_id": "3",
+          "_name": "PING"
+        },
+        {
+          "description": "UTC date and time from GPS module",
+          "field": [
+            {
+              "_type": "uint32_t",
+              "_name": "utc_date",
+              "__text": "GPS UTC date ddmmyy"
+            },
+            {
+              "_type": "uint32_t",
+              "_name": "utc_time",
+              "__text": "GPS UTC time hhmmss"
+            }
+          ],
+          "_id": "4",
+          "_name": "SYSTEM_TIME_UTC"
+        },
+        {
+          "description": "Request to control this MAV",
+          "field": [
+            {
+              "_type": "uint8_t",
+              "_name": "target_system",
+              "__text": "System the GCS requests control for"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "control_request",
+              "__text": "0: request control of this MAV, 1: Release control of this MAV"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "version",
+              "__text": "0: key as plaintext, 1-255: future, different hashing/encryption variants. The GCS should in general use the safest mode possible initially and then gradually move down the encryption level if it gets a NACK message indicating an encryption mismatch."
+            },
+            {
+              "_type": "char[25]",
+              "_name": "passkey",
+              "__text": "Password / Key, depending on version plaintext or encrypted. 25 or less characters, NULL terminated. The characters may involve A-Z, a-z, 0-9, and \"!?,.-\""
+            }
+          ],
+          "_id": "5",
+          "_name": "CHANGE_OPERATOR_CONTROL"
+        },
+        {
+          "description": "Accept / deny control of this MAV",
+          "field": [
+            {
+              "_type": "uint8_t",
+              "_name": "gcs_system_id",
+              "__text": "ID of the GCS this message "
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "control_request",
+              "__text": "0: request control of this MAV, 1: Release control of this MAV"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "ack",
+              "__text": "0: ACK, 1: NACK: Wrong passkey, 2: NACK: Unsupported passkey encryption method, 3: NACK: Already under control"
+            }
+          ],
+          "_id": "6",
+          "_name": "CHANGE_OPERATOR_CONTROL_ACK"
+        },
+        {
+          "description": "Emit an encrypted signature / key identifying this system. PLEASE NOTE: This protocol has been kept simple, so transmitting the key requires an encrypted channel for true safety.",
+          "field": {
+            "_type": "char[32]",
+            "_name": "key",
+            "__text": "key"
+          },
+          "_id": "7",
+          "_name": "AUTH_KEY"
+        },
+        {
+          "description": "This message acknowledges an action. IMPORTANT: The acknowledgement can be also negative, e.g. the MAV rejects a reset message because it is in-flight. The action ids are defined in ENUM MAV_ACTION in mavlink/include/mavlink_types.h",
+          "field": [
+            {
+              "_type": "uint8_t",
+              "_name": "action",
+              "__text": "The action id"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "result",
+              "__text": "0: Action DENIED, 1: Action executed"
+            }
+          ],
+          "_id": "9",
+          "_name": "ACTION_ACK"
+        },
+        {
+          "description": "An action message allows to execute a certain onboard action. These include liftoff, land, storing parameters too EEPROM, shutddown, etc. The action ids are defined in ENUM MAV_ACTION in mavlink/include/mavlink_types.h",
+          "field": [
+            {
+              "_type": "uint8_t",
+              "_name": "target",
+              "__text": "The system executing the action"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "target_component",
+              "__text": "The component executing the action"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "action",
+              "__text": "The action id"
+            }
+          ],
+          "_id": "10",
+          "_name": "ACTION"
+        },
+        {
+          "description": "Set the system mode, as defined by enum MAV_MODE in mavlink/include/mavlink_types.h. There is no target component id as the mode is by definition for the overall aircraft, not only for one component.",
+          "field": [
+            {
+              "_type": "uint8_t",
+              "_name": "target",
+              "__text": "The system setting the mode"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "mode",
+              "__text": "The new mode"
+            }
+          ],
+          "_id": "11",
+          "_name": "SET_MODE"
+        },
+        {
+          "description": "Set the system navigation mode, as defined by enum MAV_NAV_MODE in mavlink/include/mavlink_types.h. The navigation mode applies to the whole aircraft and thus all components.",
+          "field": [
+            {
+              "_type": "uint8_t",
+              "_name": "target",
+              "__text": "The system setting the mode"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "nav_mode",
+              "__text": "The new navigation mode"
+            }
+          ],
+          "_id": "12",
+          "_name": "SET_NAV_MODE"
+        },
+        {
+          "description": "Request to read the onboard parameter with the param_id string id. Onboard parameters are stored as key[const char*] -> value[float]. This allows to send a parameter to any other component (such as the GCS) without the need of previous knowledge of possible parameter names. Thus the same GCS can store different parameters for different autopilots. See also http://qgroundcontrol.org/parameter_interface for a full documentation of QGroundControl and IMU code.",
+          "field": [
+            {
+              "_type": "uint8_t",
+              "_name": "target_system",
+              "__text": "System ID"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "target_component",
+              "__text": "Component ID"
+            },
+            {
+              "_type": "array[15]",
+              "_name": "param_id",
+              "__text": "Onboard parameter id"
+            },
+            {
+              "_type": "int16_t",
+              "_name": "param_index",
+              "__text": "Parameter index. Send -1 to use the param ID field as identifier"
+            }
+          ],
+          "_id": "20",
+          "_name": "PARAM_REQUEST_READ"
+        },
+        {
+          "description": "Request all parameters of this component. After his request, all parameters are emitted.",
+          "field": [
+            {
+              "_type": "uint8_t",
+              "_name": "target_system",
+              "__text": "System ID"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "target_component",
+              "__text": "Component ID"
+            }
+          ],
+          "_id": "21",
+          "_name": "PARAM_REQUEST_LIST"
+        },
+        {
+          "description": "Emit the value of a onboard parameter. The inclusion of param_count and param_index in the message allows the recipient to keep track of received parameters and allows him to re-request missing parameters after a loss or timeout.",
+          "field": [
+            {
+              "_type": "array[15]",
+              "_name": "param_id",
+              "__text": "Onboard parameter id"
+            },
+            {
+              "_type": "float",
+              "_name": "param_value",
+              "__text": "Onboard parameter value"
+            },
+            {
+              "_type": "uint16_t",
+              "_name": "param_count",
+              "__text": "Total number of onboard parameters"
+            },
+            {
+              "_type": "uint16_t",
+              "_name": "param_index",
+              "__text": "Index of this onboard parameter"
+            }
+          ],
+          "_id": "22",
+          "_name": "PARAM_VALUE"
+        },
+        {
+          "description": "Set a parameter value TEMPORARILY to RAM. It will be reset to default on system reboot. Send the ACTION MAV_ACTION_STORAGE_WRITE to PERMANENTLY write the RAM contents to EEPROM. IMPORTANT: The receiving component should acknowledge the new parameter value by sending a param_value message to all communication partners. This will also ensure that multiple GCS all have an up-to-date list of all parameters. If the sending GCS did not receive a PARAM_VALUE message within its timeout time, it should re-send the PARAM_SET message.",
+          "field": [
+            {
+              "_type": "uint8_t",
+              "_name": "target_system",
+              "__text": "System ID"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "target_component",
+              "__text": "Component ID"
+            },
+            {
+              "_type": "array[15]",
+              "_name": "param_id",
+              "__text": "Onboard parameter id"
+            },
+            {
+              "_type": "float",
+              "_name": "param_value",
+              "__text": "Onboard parameter value"
+            }
+          ],
+          "_id": "23",
+          "_name": "PARAM_SET"
+        },
+        {
+          "description": "The global position, as returned by the Global Positioning System (GPS). This is\nNOT the global position estimate of the sytem, but rather a RAW sensor value. See message GLOBAL_POSITION for the global position estimate. Coordinate frame is right-handed, Z-axis up (GPS frame)",
+          "field": [
+            {
+              "_type": "uint64_t",
+              "_name": "usec",
+              "__text": "Timestamp (microseconds since UNIX epoch or microseconds since system boot)"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "fix_type",
+              "__text": "0-1: no fix, 2: 2D fix, 3: 3D fix. Some applications will not use the value of this field unless it is at least two, so always correctly fill in the fix."
+            },
+            {
+              "_type": "int32_t",
+              "_name": "lat",
+              "__text": "Latitude in 1E7 degrees"
+            },
+            {
+              "_type": "int32_t",
+              "_name": "lon",
+              "__text": "Longitude in 1E7 degrees"
+            },
+            {
+              "_type": "int32_t",
+              "_name": "alt",
+              "__text": "Altitude in 1E3 meters (millimeters)"
+            },
+            {
+              "_type": "float",
+              "_name": "eph",
+              "__text": "GPS HDOP"
+            },
+            {
+              "_type": "float",
+              "_name": "epv",
+              "__text": "GPS VDOP"
+            },
+            {
+              "_type": "float",
+              "_name": "v",
+              "__text": "GPS ground speed (m/s)"
+            },
+            {
+              "_type": "float",
+              "_name": "hdg",
+              "__text": "Compass heading in degrees, 0..360 degrees"
+            }
+          ],
+          "_id": "25",
+          "_name": "GPS_RAW_INT"
+        },
+        {
+          "description": "The RAW IMU readings for the usual 9DOF sensor setup. This message should contain the scaled values to the described units",
+          "field": [
+            {
+              "_type": "uint64_t",
+              "_name": "usec",
+              "__text": "Timestamp (microseconds since UNIX epoch or microseconds since system boot)"
+            },
+            {
+              "_type": "int16_t",
+              "_name": "xacc",
+              "__text": "X acceleration (mg)"
+            },
+            {
+              "_type": "int16_t",
+              "_name": "yacc",
+              "__text": "Y acceleration (mg)"
+            },
+            {
+              "_type": "int16_t",
+              "_name": "zacc",
+              "__text": "Z acceleration (mg)"
+            },
+            {
+              "_type": "int16_t",
+              "_name": "xgyro",
+              "__text": "Angular speed around X axis (millirad /sec)"
+            },
+            {
+              "_type": "int16_t",
+              "_name": "ygyro",
+              "__text": "Angular speed around Y axis (millirad /sec)"
+            },
+            {
+              "_type": "int16_t",
+              "_name": "zgyro",
+              "__text": "Angular speed around Z axis (millirad /sec)"
+            },
+            {
+              "_type": "int16_t",
+              "_name": "xmag",
+              "__text": "X Magnetic field (milli tesla)"
+            },
+            {
+              "_type": "int16_t",
+              "_name": "ymag",
+              "__text": "Y Magnetic field (milli tesla)"
+            },
+            {
+              "_type": "int16_t",
+              "_name": "zmag",
+              "__text": "Z Magnetic field (milli tesla)"
+            }
+          ],
+          "_id": "26",
+          "_name": "SCALED_IMU"
+        },
+        {
+          "description": "The positioning status, as reported by GPS. This message is intended to display status information about each satellite visible to the receiver. See message GLOBAL_POSITION for the global position estimate. This message can contain information for up to 20 satellites.",
+          "field": [
+            {
+              "_type": "uint8_t",
+              "_name": "satellites_visible",
+              "__text": "Number of satellites visible"
+            },
+            {
+              "_type": "array[20]",
+              "_name": "satellite_prn",
+              "__text": "Global satellite ID"
+            },
+            {
+              "_type": "array[20]",
+              "_name": "satellite_used",
+              "__text": "0: Satellite not used, 1: used for localization"
+            },
+            {
+              "_type": "array[20]",
+              "_name": "satellite_elevation",
+              "__text": "Elevation (0: right on top of receiver, 90: on the horizon) of satellite"
+            },
+            {
+              "_type": "array[20]",
+              "_name": "satellite_azimuth",
+              "__text": "Direction of satellite, 0: 0 deg, 255: 360 deg."
+            },
+            {
+              "_type": "array[20]",
+              "_name": "satellite_snr",
+              "__text": "Signal to noise ratio of satellite"
+            }
+          ],
+          "_id": "27",
+          "_name": "GPS_STATUS"
+        },
+        {
+          "description": "The RAW IMU readings for the usual 9DOF sensor setup. This message should always contain the true raw values without any scaling to allow data capture and system debugging.",
+          "field": [
+            {
+              "_type": "uint64_t",
+              "_name": "usec",
+              "__text": "Timestamp (microseconds since UNIX epoch or microseconds since system boot)"
+            },
+            {
+              "_type": "int16_t",
+              "_name": "xacc",
+              "__text": "X acceleration (raw)"
+            },
+            {
+              "_type": "int16_t",
+              "_name": "yacc",
+              "__text": "Y acceleration (raw)"
+            },
+            {
+              "_type": "int16_t",
+              "_name": "zacc",
+              "__text": "Z acceleration (raw)"
+            },
+            {
+              "_type": "int16_t",
+              "_name": "xgyro",
+              "__text": "Angular speed around X axis (raw)"
+            },
+            {
+              "_type": "int16_t",
+              "_name": "ygyro",
+              "__text": "Angular speed around Y axis (raw)"
+            },
+            {
+              "_type": "int16_t",
+              "_name": "zgyro",
+              "__text": "Angular speed around Z axis (raw)"
+            },
+            {
+              "_type": "int16_t",
+              "_name": "xmag",
+              "__text": "X Magnetic field (raw)"
+            },
+            {
+              "_type": "int16_t",
+              "_name": "ymag",
+              "__text": "Y Magnetic field (raw)"
+            },
+            {
+              "_type": "int16_t",
+              "_name": "zmag",
+              "__text": "Z Magnetic field (raw)"
+            }
+          ],
+          "_id": "28",
+          "_name": "RAW_IMU"
+        },
+        {
+          "description": "The RAW pressure readings for the typical setup of one absolute pressure and one differential pressure sensor. The sensor values should be the raw, UNSCALED ADC values.",
+          "field": [
+            {
+              "_type": "uint64_t",
+              "_name": "usec",
+              "__text": "Timestamp (microseconds since UNIX epoch or microseconds since system boot)"
+            },
+            {
+              "_type": "int16_t",
+              "_name": "press_abs",
+              "__text": "Absolute pressure (raw)"
+            },
+            {
+              "_type": "int16_t",
+              "_name": "press_diff1",
+              "__text": "Differential pressure 1 (raw)"
+            },
+            {
+              "_type": "int16_t",
+              "_name": "press_diff2",
+              "__text": "Differential pressure 2 (raw)"
+            },
+            {
+              "_type": "int16_t",
+              "_name": "temperature",
+              "__text": "Raw Temperature measurement (raw)"
+            }
+          ],
+          "_id": "29",
+          "_name": "RAW_PRESSURE"
+        },
+        {
+          "description": "The pressure readings for the typical setup of one absolute and differential pressure sensor. The units are as specified in each field.",
+          "field": [
+            {
+              "_type": "uint64_t",
+              "_name": "usec",
+              "__text": "Timestamp (microseconds since UNIX epoch or microseconds since system boot)"
+            },
+            {
+              "_type": "float",
+              "_name": "press_abs",
+              "__text": "Absolute pressure (hectopascal)"
+            },
+            {
+              "_type": "float",
+              "_name": "press_diff",
+              "__text": "Differential pressure 1 (hectopascal)"
+            },
+            {
+              "_type": "int16_t",
+              "_name": "temperature",
+              "__text": "Temperature measurement (0.01 degrees celsius)"
+            }
+          ],
+          "_id": "38",
+          "_name": "SCALED_PRESSURE"
+        },
+        {
+          "description": "The attitude in the aeronautical frame (right-handed, Z-down, X-front, Y-right).",
+          "field": [
+            {
+              "_type": "uint64_t",
+              "_name": "usec",
+              "__text": "Timestamp (microseconds since UNIX epoch or microseconds since system boot)"
+            },
+            {
+              "_type": "float",
+              "_name": "roll",
+              "__text": "Roll angle (rad)"
+            },
+            {
+              "_type": "float",
+              "_name": "pitch",
+              "__text": "Pitch angle (rad)"
+            },
+            {
+              "_type": "float",
+              "_name": "yaw",
+              "__text": "Yaw angle (rad)"
+            },
+            {
+              "_type": "float",
+              "_name": "rollspeed",
+              "__text": "Roll angular speed (rad/s)"
+            },
+            {
+              "_type": "float",
+              "_name": "pitchspeed",
+              "__text": "Pitch angular speed (rad/s)"
+            },
+            {
+              "_type": "float",
+              "_name": "yawspeed",
+              "__text": "Yaw angular speed (rad/s)"
+            }
+          ],
+          "_id": "30",
+          "_name": "ATTITUDE"
+        },
+        {
+          "description": "The filtered local position (e.g. fused computer vision and accelerometers). Coordinate frame is right-handed, Z-axis down (aeronautical frame)",
+          "field": [
+            {
+              "_type": "uint64_t",
+              "_name": "usec",
+              "__text": "Timestamp (microseconds since UNIX epoch or microseconds since system boot)"
+            },
+            {
+              "_type": "float",
+              "_name": "x",
+              "__text": "X Position"
+            },
+            {
+              "_type": "float",
+              "_name": "y",
+              "__text": "Y Position"
+            },
+            {
+              "_type": "float",
+              "_name": "z",
+              "__text": "Z Position"
+            },
+            {
+              "_type": "float",
+              "_name": "vx",
+              "__text": "X Speed"
+            },
+            {
+              "_type": "float",
+              "_name": "vy",
+              "__text": "Y Speed"
+            },
+            {
+              "_type": "float",
+              "_name": "vz",
+              "__text": "Z Speed"
+            }
+          ],
+          "_id": "31",
+          "_name": "LOCAL_POSITION"
+        },
+        {
+          "description": "The filtered global position (e.g. fused GPS and accelerometers). Coordinate frame is right-handed, Z-axis up (GPS frame)",
+          "field": [
+            {
+              "_type": "uint64_t",
+              "_name": "usec",
+              "__text": "Timestamp (microseconds since unix epoch)"
+            },
+            {
+              "_type": "float",
+              "_name": "lat",
+              "__text": "Latitude, in degrees"
+            },
+            {
+              "_type": "float",
+              "_name": "lon",
+              "__text": "Longitude, in degrees"
+            },
+            {
+              "_type": "float",
+              "_name": "alt",
+              "__text": "Absolute altitude, in meters"
+            },
+            {
+              "_type": "float",
+              "_name": "vx",
+              "__text": "X Speed (in Latitude direction, positive: going north)"
+            },
+            {
+              "_type": "float",
+              "_name": "vy",
+              "__text": "Y Speed (in Longitude direction, positive: going east)"
+            },
+            {
+              "_type": "float",
+              "_name": "vz",
+              "__text": "Z Speed (in Altitude direction, positive: going up)"
+            }
+          ],
+          "_id": "33",
+          "_name": "GLOBAL_POSITION"
+        },
+        {
+          "description": "The global position, as returned by the Global Positioning System (GPS). This is\nNOT the global position estimate of the sytem, but rather a RAW sensor value. See message GLOBAL_POSITION for the global position estimate. Coordinate frame is right-handed, Z-axis up (GPS frame)",
+          "field": [
+            {
+              "_type": "uint64_t",
+              "_name": "usec",
+              "__text": "Timestamp (microseconds since UNIX epoch or microseconds since system boot)"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "fix_type",
+              "__text": "0-1: no fix, 2: 2D fix, 3: 3D fix. Some applications will not use the value of this field unless it is at least two, so always correctly fill in the fix."
+            },
+            {
+              "_type": "float",
+              "_name": "lat",
+              "__text": "Latitude in degrees"
+            },
+            {
+              "_type": "float",
+              "_name": "lon",
+              "__text": "Longitude in degrees"
+            },
+            {
+              "_type": "float",
+              "_name": "alt",
+              "__text": "Altitude in meters"
+            },
+            {
+              "_type": "float",
+              "_name": "eph",
+              "__text": "GPS HDOP"
+            },
+            {
+              "_type": "float",
+              "_name": "epv",
+              "__text": "GPS VDOP"
+            },
+            {
+              "_type": "float",
+              "_name": "v",
+              "__text": "GPS ground speed"
+            },
+            {
+              "_type": "float",
+              "_name": "hdg",
+              "__text": "Compass heading in degrees, 0..360 degrees"
+            }
+          ],
+          "_id": "32",
+          "_name": "GPS_RAW"
+        },
+        {
+          "description": "The general system state. If the system is following the MAVLink standard, the system state is mainly defined by three orthogonal states/modes: The system mode, which is either LOCKED (motors shut down and locked), MANUAL (system under RC control), GUIDED (system with autonomous position control, position setpoint controlled manually) or AUTO (system guided by path/waypoint planner). The NAV_MODE defined the current flight state: LIFTOFF (often an open-loop maneuver), LANDING, WAYPOINTS or VECTOR. This represents the internal navigation state machine. The system status shows whether the system is currently active or not and if an emergency occured. During the CRITICAL and EMERGENCY states the MAV is still considered to be active, but should start emergency procedures autonomously. After a failure occured it should first move from active to critical to allow manual intervention and then move to emergency after a certain timeout.",
+          "field": [
+            {
+              "_type": "uint8_t",
+              "_name": "mode",
+              "__text": "System mode, see MAV_MODE ENUM in mavlink/include/mavlink_types.h"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "nav_mode",
+              "__text": "Navigation mode, see MAV_NAV_MODE ENUM"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "status",
+              "__text": "System status flag, see MAV_STATUS ENUM"
+            },
+            {
+              "_type": "uint16_t",
+              "_name": "load",
+              "__text": "Maximum usage in percent of the mainloop time, (0%: 0, 100%: 1000) should be always below 1000"
+            },
+            {
+              "_type": "uint16_t",
+              "_name": "vbat",
+              "__text": "Battery voltage, in millivolts (1 = 1 millivolt)"
+            },
+            {
+              "_type": "uint16_t",
+              "_name": "battery_remaining",
+              "__text": "Remaining battery energy: (0%: 0, 100%: 1000)"
+            },
+            {
+              "_type": "uint16_t",
+              "_name": "packet_drop",
+              "__text": "Dropped packets (packets that were corrupted on reception on the MAV)"
+            }
+          ],
+          "_id": "34",
+          "_name": "SYS_STATUS"
+        },
+        {
+          "description": "The RAW values of the RC channels received. The standard PPM modulation is as follows: 1000 microseconds: 0%, 2000 microseconds: 100%. Individual receivers/transmitters might violate this specification.",
+          "field": [
+            {
+              "_type": "uint16_t",
+              "_name": "chan1_raw",
+              "__text": "RC channel 1 value, in microseconds"
+            },
+            {
+              "_type": "uint16_t",
+              "_name": "chan2_raw",
+              "__text": "RC channel 2 value, in microseconds"
+            },
+            {
+              "_type": "uint16_t",
+              "_name": "chan3_raw",
+              "__text": "RC channel 3 value, in microseconds"
+            },
+            {
+              "_type": "uint16_t",
+              "_name": "chan4_raw",
+              "__text": "RC channel 4 value, in microseconds"
+            },
+            {
+              "_type": "uint16_t",
+              "_name": "chan5_raw",
+              "__text": "RC channel 5 value, in microseconds"
+            },
+            {
+              "_type": "uint16_t",
+              "_name": "chan6_raw",
+              "__text": "RC channel 6 value, in microseconds"
+            },
+            {
+              "_type": "uint16_t",
+              "_name": "chan7_raw",
+              "__text": "RC channel 7 value, in microseconds"
+            },
+            {
+              "_type": "uint16_t",
+              "_name": "chan8_raw",
+              "__text": "RC channel 8 value, in microseconds"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "rssi",
+              "__text": "Receive signal strength indicator, 0: 0%, 255: 100%"
+            }
+          ],
+          "_id": "35",
+          "_name": "RC_CHANNELS_RAW"
+        },
+        {
+          "description": "The scaled values of the RC channels received. (-100%) -10000, (0%) 0, (100%) 10000",
+          "field": [
+            {
+              "_type": "int16_t",
+              "_name": "chan1_scaled",
+              "__text": "RC channel 1 value scaled, (-100%) -10000, (0%) 0, (100%) 10000"
+            },
+            {
+              "_type": "int16_t",
+              "_name": "chan2_scaled",
+              "__text": "RC channel 2 value scaled, (-100%) -10000, (0%) 0, (100%) 10000"
+            },
+            {
+              "_type": "int16_t",
+              "_name": "chan3_scaled",
+              "__text": "RC channel 3 value scaled, (-100%) -10000, (0%) 0, (100%) 10000"
+            },
+            {
+              "_type": "int16_t",
+              "_name": "chan4_scaled",
+              "__text": "RC channel 4 value scaled, (-100%) -10000, (0%) 0, (100%) 10000"
+            },
+            {
+              "_type": "int16_t",
+              "_name": "chan5_scaled",
+              "__text": "RC channel 5 value scaled, (-100%) -10000, (0%) 0, (100%) 10000"
+            },
+            {
+              "_type": "int16_t",
+              "_name": "chan6_scaled",
+              "__text": "RC channel 6 value scaled, (-100%) -10000, (0%) 0, (100%) 10000"
+            },
+            {
+              "_type": "int16_t",
+              "_name": "chan7_scaled",
+              "__text": "RC channel 7 value scaled, (-100%) -10000, (0%) 0, (100%) 10000"
+            },
+            {
+              "_type": "int16_t",
+              "_name": "chan8_scaled",
+              "__text": "RC channel 8 value scaled, (-100%) -10000, (0%) 0, (100%) 10000"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "rssi",
+              "__text": "Receive signal strength indicator, 0: 0%, 255: 100%"
+            }
+          ],
+          "_id": "36",
+          "_name": "RC_CHANNELS_SCALED"
+        },
+        {
+          "description": "The RAW values of the servo outputs (for RC input from the remote, use the RC_CHANNELS messages). The standard PPM modulation is as follows: 1000 microseconds: 0%, 2000 microseconds: 100%.",
+          "field": [
+            {
+              "_type": "uint16_t",
+              "_name": "servo1_raw",
+              "__text": "Servo output 1 value, in microseconds"
+            },
+            {
+              "_type": "uint16_t",
+              "_name": "servo2_raw",
+              "__text": "Servo output 2 value, in microseconds"
+            },
+            {
+              "_type": "uint16_t",
+              "_name": "servo3_raw",
+              "__text": "Servo output 3 value, in microseconds"
+            },
+            {
+              "_type": "uint16_t",
+              "_name": "servo4_raw",
+              "__text": "Servo output 4 value, in microseconds"
+            },
+            {
+              "_type": "uint16_t",
+              "_name": "servo5_raw",
+              "__text": "Servo output 5 value, in microseconds"
+            },
+            {
+              "_type": "uint16_t",
+              "_name": "servo6_raw",
+              "__text": "Servo output 6 value, in microseconds"
+            },
+            {
+              "_type": "uint16_t",
+              "_name": "servo7_raw",
+              "__text": "Servo output 7 value, in microseconds"
+            },
+            {
+              "_type": "uint16_t",
+              "_name": "servo8_raw",
+              "__text": "Servo output 8 value, in microseconds"
+            }
+          ],
+          "_id": "37",
+          "_name": "SERVO_OUTPUT_RAW"
+        },
+        {
+          "description": "Message encoding a waypoint. This message is emitted to announce\n     the presence of a waypoint and to set a waypoint on the system. The waypoint can be either in x, y, z meters (type: LOCAL) or x:lat, y:lon, z:altitude. Local frame is Z-down, right handed, global frame is Z-up, right handed",
+          "field": [
+            {
+              "_type": "uint8_t",
+              "_name": "target_system",
+              "__text": "System ID"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "target_component",
+              "__text": "Component ID"
+            },
+            {
+              "_type": "uint16_t",
+              "_name": "seq",
+              "__text": "Sequence"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "frame",
+              "__text": "The coordinate system of the waypoint. see MAV_FRAME in mavlink_types.h"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "command",
+              "__text": "The scheduled action for the waypoint. see MAV_COMMAND in common.xml MAVLink specs"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "current",
+              "__text": "false:0, true:1"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "autocontinue",
+              "__text": "autocontinue to next wp"
+            },
+            {
+              "_type": "float",
+              "_name": "param1",
+              "__text": "PARAM1 / For NAV command waypoints: Radius in which the waypoint is accepted as reached, in meters"
+            },
+            {
+              "_type": "float",
+              "_name": "param2",
+              "__text": "PARAM2 / For NAV command waypoints: Time that the MAV should stay inside the PARAM1 radius before advancing, in milliseconds"
+            },
+            {
+              "_type": "float",
+              "_name": "param3",
+              "__text": "PARAM3 / For LOITER command waypoints: Orbit to circle around the waypoint, in meters. If positive the orbit direction should be clockwise, if negative the orbit direction should be counter-clockwise."
+            },
+            {
+              "_type": "float",
+              "_name": "param4",
+              "__text": "PARAM4 / For NAV and LOITER command waypoints: Yaw orientation in degrees, [0..360] 0 = NORTH"
+            },
+            {
+              "_type": "float",
+              "_name": "x",
+              "__text": "PARAM5 / local: x position, global: latitude"
+            },
+            {
+              "_type": "float",
+              "_name": "y",
+              "__text": "PARAM6 / y position: global: longitude"
+            },
+            {
+              "_type": "float",
+              "_name": "z",
+              "__text": "PARAM7 / z position: global: altitude"
+            }
+          ],
+          "_id": "39",
+          "_name": "WAYPOINT"
+        },
+        {
+          "description": "Request the information of the waypoint with the sequence number seq. The response of the system to this message should be a WAYPOINT message.",
+          "field": [
+            {
+              "_type": "uint8_t",
+              "_name": "target_system",
+              "__text": "System ID"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "target_component",
+              "__text": "Component ID"
+            },
+            {
+              "_type": "uint16_t",
+              "_name": "seq",
+              "__text": "Sequence"
+            }
+          ],
+          "_id": "40",
+          "_name": "WAYPOINT_REQUEST"
+        },
+        {
+          "description": "Set the waypoint with sequence number seq as current waypoint. This means that the MAV will continue to this waypoint on the shortest path (not following the waypoints in-between).",
+          "field": [
+            {
+              "_type": "uint8_t",
+              "_name": "target_system",
+              "__text": "System ID"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "target_component",
+              "__text": "Component ID"
+            },
+            {
+              "_type": "uint16_t",
+              "_name": "seq",
+              "__text": "Sequence"
+            }
+          ],
+          "_id": "41",
+          "_name": "WAYPOINT_SET_CURRENT"
+        },
+        {
+          "description": "Message that announces the sequence number of the current active waypoint. The MAV will fly towards this waypoint.",
+          "field": {
+            "_type": "uint16_t",
+            "_name": "seq",
+            "__text": "Sequence"
+          },
+          "_id": "42",
+          "_name": "WAYPOINT_CURRENT"
+        },
+        {
+          "description": "Request the overall list of waypoints from the system/component.",
+          "field": [
+            {
+              "_type": "uint8_t",
+              "_name": "target_system",
+              "__text": "System ID"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "target_component",
+              "__text": "Component ID"
+            }
+          ],
+          "_id": "43",
+          "_name": "WAYPOINT_REQUEST_LIST"
+        },
+        {
+          "description": "This message is emitted as response to WAYPOINT_REQUEST_LIST by the MAV. The GCS can then request the individual waypoints based on the knowledge of the total number of waypoints.",
+          "field": [
+            {
+              "_type": "uint8_t",
+              "_name": "target_system",
+              "__text": "System ID"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "target_component",
+              "__text": "Component ID"
+            },
+            {
+              "_type": "uint16_t",
+              "_name": "count",
+              "__text": "Number of Waypoints in the Sequence"
+            }
+          ],
+          "_id": "44",
+          "_name": "WAYPOINT_COUNT"
+        },
+        {
+          "description": "Delete all waypoints at once.",
+          "field": [
+            {
+              "_type": "uint8_t",
+              "_name": "target_system",
+              "__text": "System ID"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "target_component",
+              "__text": "Component ID"
+            }
+          ],
+          "_id": "45",
+          "_name": "WAYPOINT_CLEAR_ALL"
+        },
+        {
+          "description": "A certain waypoint has been reached. The system will either hold this position (or circle on the orbit) or (if the autocontinue on the WP was set) continue to the next waypoint.",
+          "field": {
+            "_type": "uint16_t",
+            "_name": "seq",
+            "__text": "Sequence"
+          },
+          "_id": "46",
+          "_name": "WAYPOINT_REACHED"
+        },
+        {
+          "description": "Ack message during waypoint handling. The type field states if this message is a positive ack (type=0) or if an error happened (type=non-zero).",
+          "field": [
+            {
+              "_type": "uint8_t",
+              "_name": "target_system",
+              "__text": "System ID"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "target_component",
+              "__text": "Component ID"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "type",
+              "__text": "0: OK, 1: Error"
+            }
+          ],
+          "_id": "47",
+          "_name": "WAYPOINT_ACK"
+        },
+        {
+          "description": "As local waypoints exist, the global waypoint reference allows to transform between the local coordinate frame and the global (GPS) coordinate frame. This can be necessary when e.g. in- and outdoor settings are connected and the MAV should move from in- to outdoor.",
+          "field": [
+            {
+              "_type": "uint8_t",
+              "_name": "target_system",
+              "__text": "System ID"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "target_component",
+              "__text": "Component ID"
+            },
+            {
+              "_type": "int32_t",
+              "_name": "latitude",
+              "__text": "global position * 1E7"
+            },
+            {
+              "_type": "int32_t",
+              "_name": "longitude",
+              "__text": "global position * 1E7"
+            },
+            {
+              "_type": "int32_t",
+              "_name": "altitude",
+              "__text": "global position * 1000"
+            }
+          ],
+          "_id": "48",
+          "_name": "GPS_SET_GLOBAL_ORIGIN"
+        },
+        {
+          "description": "Once the MAV sets a new GPS-Local correspondence, this message announces the origin (0,0,0) position",
+          "field": [
+            {
+              "_type": "int32_t",
+              "_name": "latitude",
+              "__text": "Latitude (WGS84), expressed as * 1E7"
+            },
+            {
+              "_type": "int32_t",
+              "_name": "longitude",
+              "__text": "Longitude (WGS84), expressed as * 1E7"
+            },
+            {
+              "_type": "int32_t",
+              "_name": "altitude",
+              "__text": "Altitude(WGS84), expressed as * 1000"
+            }
+          ],
+          "_id": "49",
+          "_name": "GPS_LOCAL_ORIGIN_SET"
+        },
+        {
+          "description": "Set the setpoint for a local position controller. This is the position in local coordinates the MAV should fly to. This message is sent by the path/waypoint planner to the onboard position controller. As some MAVs have a degree of freedom in yaw (e.g. all helicopters/quadrotors), the desired yaw angle is part of the message.",
+          "field": [
+            {
+              "_type": "uint8_t",
+              "_name": "target_system",
+              "__text": "System ID"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "target_component",
+              "__text": "Component ID"
+            },
+            {
+              "_type": "float",
+              "_name": "x",
+              "__text": "x position"
+            },
+            {
+              "_type": "float",
+              "_name": "y",
+              "__text": "y position"
+            },
+            {
+              "_type": "float",
+              "_name": "z",
+              "__text": "z position"
+            },
+            {
+              "_type": "float",
+              "_name": "yaw",
+              "__text": "Desired yaw angle"
+            }
+          ],
+          "_id": "50",
+          "_name": "LOCAL_POSITION_SETPOINT_SET"
+        },
+        {
+          "description": "Transmit the current local setpoint of the controller to other MAVs (collision avoidance) and to the GCS.",
+          "field": [
+            {
+              "_type": "float",
+              "_name": "x",
+              "__text": "x position"
+            },
+            {
+              "_type": "float",
+              "_name": "y",
+              "__text": "y position"
+            },
+            {
+              "_type": "float",
+              "_name": "z",
+              "__text": "z position"
+            },
+            {
+              "_type": "float",
+              "_name": "yaw",
+              "__text": "Desired yaw angle"
+            }
+          ],
+          "_id": "51",
+          "_name": "LOCAL_POSITION_SETPOINT"
+        },
+        {
+          "field": [
+            {
+              "_type": "uint8_t",
+              "_name": "position_fix",
+              "__text": "Position fix: 0: lost, 2: 2D position fix, 3: 3D position fix "
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "vision_fix",
+              "__text": "Vision position fix: 0: lost, 1: 2D local position hold, 2: 2D global position fix, 3: 3D global position fix "
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "gps_fix",
+              "__text": "GPS position fix: 0: no reception, 1: Minimum 1 satellite, but no position fix, 2: 2D position fix, 3: 3D position fix "
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "ahrs_health",
+              "__text": "Attitude estimation health: 0: poor, 255: excellent"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "control_att",
+              "__text": "0: Attitude control disabled, 1: enabled"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "control_pos_xy",
+              "__text": "0: X, Y position control disabled, 1: enabled"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "control_pos_z",
+              "__text": "0: Z position control disabled, 1: enabled"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "control_pos_yaw",
+              "__text": "0: Yaw angle control disabled, 1: enabled"
+            }
+          ],
+          "_id": "52",
+          "_name": "CONTROL_STATUS"
+        },
+        {
+          "description": "Set a safety zone (volume), which is defined by two corners of a cube. This message can be used to tell the MAV which setpoints/waypoints to accept and which to reject. Safety areas are often enforced by national or competition regulations.",
+          "field": [
+            {
+              "_type": "uint8_t",
+              "_name": "target_system",
+              "__text": "System ID"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "target_component",
+              "__text": "Component ID"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "frame",
+              "__text": "Coordinate frame, as defined by MAV_FRAME enum in mavlink_types.h. Can be either global, GPS, right-handed with Z axis up or local, right handed, Z axis down."
+            },
+            {
+              "_type": "float",
+              "_name": "p1x",
+              "__text": "x position 1 / Latitude 1"
+            },
+            {
+              "_type": "float",
+              "_name": "p1y",
+              "__text": "y position 1 / Longitude 1"
+            },
+            {
+              "_type": "float",
+              "_name": "p1z",
+              "__text": "z position 1 / Altitude 1"
+            },
+            {
+              "_type": "float",
+              "_name": "p2x",
+              "__text": "x position 2 / Latitude 2"
+            },
+            {
+              "_type": "float",
+              "_name": "p2y",
+              "__text": "y position 2 / Longitude 2"
+            },
+            {
+              "_type": "float",
+              "_name": "p2z",
+              "__text": "z position 2 / Altitude 2"
+            }
+          ],
+          "_id": "53",
+          "_name": "SAFETY_SET_ALLOWED_AREA"
+        },
+        {
+          "description": "Read out the safety zone the MAV currently assumes.",
+          "field": [
+            {
+              "_type": "uint8_t",
+              "_name": "frame",
+              "__text": "Coordinate frame, as defined by MAV_FRAME enum in mavlink_types.h. Can be either global, GPS, right-handed with Z axis up or local, right handed, Z axis down."
+            },
+            {
+              "_type": "float",
+              "_name": "p1x",
+              "__text": "x position 1 / Latitude 1"
+            },
+            {
+              "_type": "float",
+              "_name": "p1y",
+              "__text": "y position 1 / Longitude 1"
+            },
+            {
+              "_type": "float",
+              "_name": "p1z",
+              "__text": "z position 1 / Altitude 1"
+            },
+            {
+              "_type": "float",
+              "_name": "p2x",
+              "__text": "x position 2 / Latitude 2"
+            },
+            {
+              "_type": "float",
+              "_name": "p2y",
+              "__text": "y position 2 / Longitude 2"
+            },
+            {
+              "_type": "float",
+              "_name": "p2z",
+              "__text": "z position 2 / Altitude 2"
+            }
+          ],
+          "_id": "54",
+          "_name": "SAFETY_ALLOWED_AREA"
+        },
+        {
+          "description": "Set roll, pitch and yaw.",
+          "field": [
+            {
+              "_type": "uint8_t",
+              "_name": "target_system",
+              "__text": "System ID"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "target_component",
+              "__text": "Component ID"
+            },
+            {
+              "_type": "float",
+              "_name": "roll",
+              "__text": "Desired roll angle in radians"
+            },
+            {
+              "_type": "float",
+              "_name": "pitch",
+              "__text": "Desired pitch angle in radians"
+            },
+            {
+              "_type": "float",
+              "_name": "yaw",
+              "__text": "Desired yaw angle in radians"
+            },
+            {
+              "_type": "float",
+              "_name": "thrust",
+              "__text": "Collective thrust, normalized to 0 .. 1"
+            }
+          ],
+          "_id": "55",
+          "_name": "SET_ROLL_PITCH_YAW_THRUST"
+        },
+        {
+          "description": "Set roll, pitch and yaw.",
+          "field": [
+            {
+              "_type": "uint8_t",
+              "_name": "target_system",
+              "__text": "System ID"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "target_component",
+              "__text": "Component ID"
+            },
+            {
+              "_type": "float",
+              "_name": "roll_speed",
+              "__text": "Desired roll angular speed in rad/s"
+            },
+            {
+              "_type": "float",
+              "_name": "pitch_speed",
+              "__text": "Desired pitch angular speed in rad/s"
+            },
+            {
+              "_type": "float",
+              "_name": "yaw_speed",
+              "__text": "Desired yaw angular speed in rad/s"
+            },
+            {
+              "_type": "float",
+              "_name": "thrust",
+              "__text": "Collective thrust, normalized to 0 .. 1"
+            }
+          ],
+          "_id": "56",
+          "_name": "SET_ROLL_PITCH_YAW_SPEED_THRUST"
+        },
+        {
+          "description": "Setpoint in roll, pitch, yaw currently active on the system.",
+          "field": [
+            {
+              "_type": "uint64_t",
+              "_name": "time_us",
+              "__text": "Timestamp in micro seconds since unix epoch"
+            },
+            {
+              "_type": "float",
+              "_name": "roll",
+              "__text": "Desired roll angle in radians"
+            },
+            {
+              "_type": "float",
+              "_name": "pitch",
+              "__text": "Desired pitch angle in radians"
+            },
+            {
+              "_type": "float",
+              "_name": "yaw",
+              "__text": "Desired yaw angle in radians"
+            },
+            {
+              "_type": "float",
+              "_name": "thrust",
+              "__text": "Collective thrust, normalized to 0 .. 1"
+            }
+          ],
+          "_id": "57",
+          "_name": "ROLL_PITCH_YAW_THRUST_SETPOINT"
+        },
+        {
+          "description": "Setpoint in rollspeed, pitchspeed, yawspeed currently active on the system.",
+          "field": [
+            {
+              "_type": "uint64_t",
+              "_name": "time_us",
+              "__text": "Timestamp in micro seconds since unix epoch"
+            },
+            {
+              "_type": "float",
+              "_name": "roll_speed",
+              "__text": "Desired roll angular speed in rad/s"
+            },
+            {
+              "_type": "float",
+              "_name": "pitch_speed",
+              "__text": "Desired pitch angular speed in rad/s"
+            },
+            {
+              "_type": "float",
+              "_name": "yaw_speed",
+              "__text": "Desired yaw angular speed in rad/s"
+            },
+            {
+              "_type": "float",
+              "_name": "thrust",
+              "__text": "Collective thrust, normalized to 0 .. 1"
+            }
+          ],
+          "_id": "58",
+          "_name": "ROLL_PITCH_YAW_SPEED_THRUST_SETPOINT"
+        },
+        {
+          "description": "Outputs of the APM navigation controller. The primary use of this message is to check the response and signs\nof the controller before actual flight and to assist with tuning controller parameters ",
+          "field": [
+            {
+              "_type": "float",
+              "_name": "nav_roll",
+              "__text": "Current desired roll in degrees"
+            },
+            {
+              "_type": "float",
+              "_name": "nav_pitch",
+              "__text": "Current desired pitch in degrees"
+            },
+            {
+              "_type": "int16_t",
+              "_name": "nav_bearing",
+              "__text": "Current desired heading in degrees"
+            },
+            {
+              "_type": "int16_t",
+              "_name": "target_bearing",
+              "__text": "Bearing to current waypoint/target in degrees"
+            },
+            {
+              "_type": "uint16_t",
+              "_name": "wp_dist",
+              "__text": "Distance to active waypoint in meters"
+            },
+            {
+              "_type": "float",
+              "_name": "alt_error",
+              "__text": "Current altitude error in meters"
+            },
+            {
+              "_type": "float",
+              "_name": "aspd_error",
+              "__text": "Current airspeed error in meters/second"
+            },
+            {
+              "_type": "float",
+              "_name": "xtrack_error",
+              "__text": "Current crosstrack error on x-y plane in meters"
+            }
+          ],
+          "_id": "62",
+          "_name": "NAV_CONTROLLER_OUTPUT"
+        },
+        {
+          "description": "The goal position of the system. This position is the input to any navigation or path planning algorithm and does NOT represent the current controller setpoint.",
+          "field": [
+            {
+              "_type": "float",
+              "_name": "x",
+              "__text": "x position"
+            },
+            {
+              "_type": "float",
+              "_name": "y",
+              "__text": "y position"
+            },
+            {
+              "_type": "float",
+              "_name": "z",
+              "__text": "z position"
+            },
+            {
+              "_type": "float",
+              "_name": "yaw",
+              "__text": "yaw orientation in radians, 0 = NORTH"
+            }
+          ],
+          "_id": "63",
+          "_name": "POSITION_TARGET"
+        },
+        {
+          "description": "Corrects the systems state by adding an error correction term to the position and velocity, and by rotating the attitude by a correction angle.",
+          "field": [
+            {
+              "_type": "float",
+              "_name": "xErr",
+              "__text": "x position error"
+            },
+            {
+              "_type": "float",
+              "_name": "yErr",
+              "__text": "y position error"
+            },
+            {
+              "_type": "float",
+              "_name": "zErr",
+              "__text": "z position error"
+            },
+            {
+              "_type": "float",
+              "_name": "rollErr",
+              "__text": "roll error (radians)"
+            },
+            {
+              "_type": "float",
+              "_name": "pitchErr",
+              "__text": "pitch error (radians)"
+            },
+            {
+              "_type": "float",
+              "_name": "yawErr",
+              "__text": "yaw error (radians)"
+            },
+            {
+              "_type": "float",
+              "_name": "vxErr",
+              "__text": "x velocity"
+            },
+            {
+              "_type": "float",
+              "_name": "vyErr",
+              "__text": "y velocity"
+            },
+            {
+              "_type": "float",
+              "_name": "vzErr",
+              "__text": "z velocity"
+            }
+          ],
+          "_id": "64",
+          "_name": "STATE_CORRECTION"
+        },
+        {
+          "field": [
+            {
+              "_type": "uint8_t",
+              "_name": "target",
+              "__text": "The system setting the altitude"
+            },
+            {
+              "_type": "uint32_t",
+              "_name": "mode",
+              "__text": "The new altitude in meters"
+            }
+          ],
+          "_id": "65",
+          "_name": "SET_ALTITUDE"
+        },
+        {
+          "field": [
+            {
+              "_type": "uint8_t",
+              "_name": "target_system",
+              "__text": "The target requested to send the message stream."
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "target_component",
+              "__text": "The target requested to send the message stream."
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "req_stream_id",
+              "__text": "The ID of the requested message type"
+            },
+            {
+              "_type": "uint16_t",
+              "_name": "req_message_rate",
+              "__text": "Update rate in Hertz"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "start_stop",
+              "__text": "1 to start sending, 0 to stop sending."
+            }
+          ],
+          "_id": "66",
+          "_name": "REQUEST_DATA_STREAM"
+        },
+        {
+          "description": "This packet is useful for high throughput\n                applications such as hardware in the loop simulations.\n            ",
+          "field": [
+            {
+              "_type": "uint64_t",
+              "_name": "usec",
+              "__text": "Timestamp (microseconds since UNIX epoch or microseconds since system boot)"
+            },
+            {
+              "_type": "float",
+              "_name": "roll",
+              "__text": "Roll angle (rad)"
+            },
+            {
+              "_type": "float",
+              "_name": "pitch",
+              "__text": "Pitch angle (rad)"
+            },
+            {
+              "_type": "float",
+              "_name": "yaw",
+              "__text": "Yaw angle (rad)"
+            },
+            {
+              "_type": "float",
+              "_name": "rollspeed",
+              "__text": "Roll angular speed (rad/s)"
+            },
+            {
+              "_type": "float",
+              "_name": "pitchspeed",
+              "__text": "Pitch angular speed (rad/s)"
+            },
+            {
+              "_type": "float",
+              "_name": "yawspeed",
+              "__text": "Yaw angular speed (rad/s)"
+            },
+            {
+              "_type": "int32_t",
+              "_name": "lat",
+              "__text": "Latitude, expressed as * 1E7"
+            },
+            {
+              "_type": "int32_t",
+              "_name": "lon",
+              "__text": "Longitude, expressed as * 1E7"
+            },
+            {
+              "_type": "int32_t",
+              "_name": "alt",
+              "__text": "Altitude in meters, expressed as * 1000 (millimeters)"
+            },
+            {
+              "_type": "int16_t",
+              "_name": "vx",
+              "__text": "Ground X Speed (Latitude), expressed as m/s * 100"
+            },
+            {
+              "_type": "int16_t",
+              "_name": "vy",
+              "__text": "Ground Y Speed (Longitude), expressed as m/s * 100"
+            },
+            {
+              "_type": "int16_t",
+              "_name": "vz",
+              "__text": "Ground Z Speed (Altitude), expressed as m/s * 100"
+            },
+            {
+              "_type": "int16_t",
+              "_name": "xacc",
+              "__text": "X acceleration (mg)"
+            },
+            {
+              "_type": "int16_t",
+              "_name": "yacc",
+              "__text": "Y acceleration (mg)"
+            },
+            {
+              "_type": "int16_t",
+              "_name": "zacc",
+              "__text": "Z acceleration (mg)"
+            }
+          ],
+          "_id": "67",
+          "_name": "HIL_STATE"
+        },
+        {
+          "description": "Hardware in the loop control outputs",
+          "field": [
+            {
+              "_type": "uint64_t",
+              "_name": "time_us",
+              "__text": "Timestamp (microseconds since UNIX epoch or microseconds since system boot)"
+            },
+            {
+              "_type": "float",
+              "_name": "roll_ailerons",
+              "__text": "Control output -3 .. 1"
+            },
+            {
+              "_type": "float",
+              "_name": "pitch_elevator",
+              "__text": "Control output -1 .. 1"
+            },
+            {
+              "_type": "float",
+              "_name": "yaw_rudder",
+              "__text": "Control output -1 .. 1"
+            },
+            {
+              "_type": "float",
+              "_name": "throttle",
+              "__text": "Throttle 0 .. 1"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "mode",
+              "__text": "System mode (MAV_MODE)"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "nav_mode",
+              "__text": "Navigation mode (MAV_NAV_MODE)"
+            }
+          ],
+          "_id": "68",
+          "_name": "HIL_CONTROLS"
+        },
+        {
+          "field": [
+            {
+              "_type": "uint8_t",
+              "_name": "target",
+              "__text": "The system to be controlled"
+            },
+            {
+              "_type": "float",
+              "_name": "roll",
+              "__text": "roll"
+            },
+            {
+              "_type": "float",
+              "_name": "pitch",
+              "__text": "pitch"
+            },
+            {
+              "_type": "float",
+              "_name": "yaw",
+              "__text": "yaw"
+            },
+            {
+              "_type": "float",
+              "_name": "thrust",
+              "__text": "thrust"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "roll_manual",
+              "__text": "roll control enabled auto:0, manual:1"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "pitch_manual",
+              "__text": "pitch auto:0, manual:1"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "yaw_manual",
+              "__text": "yaw auto:0, manual:1"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "thrust_manual",
+              "__text": "thrust auto:0, manual:1"
+            }
+          ],
+          "_id": "69",
+          "_name": "MANUAL_CONTROL"
+        },
+        {
+          "description": "The RAW values of the RC channels sent to the MAV to override info received from the RC radio. A value of -1 means no change to that channel. A value of 0 means control of that channel should be released back to the RC radio. The standard PPM modulation is as follows: 1000 microseconds: 0%, 2000 microseconds: 100%. Individual receivers/transmitters might violate this specification.",
+          "field": [
+            {
+              "_type": "uint8_t",
+              "_name": "target_system",
+              "__text": "System ID"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "target_component",
+              "__text": "Component ID"
+            },
+            {
+              "_type": "uint16_t",
+              "_name": "chan1_raw",
+              "__text": "RC channel 1 value, in microseconds"
+            },
+            {
+              "_type": "uint16_t",
+              "_name": "chan2_raw",
+              "__text": "RC channel 2 value, in microseconds"
+            },
+            {
+              "_type": "uint16_t",
+              "_name": "chan3_raw",
+              "__text": "RC channel 3 value, in microseconds"
+            },
+            {
+              "_type": "uint16_t",
+              "_name": "chan4_raw",
+              "__text": "RC channel 4 value, in microseconds"
+            },
+            {
+              "_type": "uint16_t",
+              "_name": "chan5_raw",
+              "__text": "RC channel 5 value, in microseconds"
+            },
+            {
+              "_type": "uint16_t",
+              "_name": "chan6_raw",
+              "__text": "RC channel 6 value, in microseconds"
+            },
+            {
+              "_type": "uint16_t",
+              "_name": "chan7_raw",
+              "__text": "RC channel 7 value, in microseconds"
+            },
+            {
+              "_type": "uint16_t",
+              "_name": "chan8_raw",
+              "__text": "RC channel 8 value, in microseconds"
+            }
+          ],
+          "_id": "70",
+          "_name": "RC_CHANNELS_OVERRIDE"
+        },
+        {
+          "description": "The filtered global position (e.g. fused GPS and accelerometers). The position is in GPS-frame (right-handed, Z-up)",
+          "field": [
+            {
+              "_type": "int32_t",
+              "_name": "lat",
+              "__text": "Latitude, expressed as * 1E7"
+            },
+            {
+              "_type": "int32_t",
+              "_name": "lon",
+              "__text": "Longitude, expressed as * 1E7"
+            },
+            {
+              "_type": "int32_t",
+              "_name": "alt",
+              "__text": "Altitude in meters, expressed as * 1000 (millimeters)"
+            },
+            {
+              "_type": "int16_t",
+              "_name": "vx",
+              "__text": "Ground X Speed (Latitude), expressed as m/s * 100"
+            },
+            {
+              "_type": "int16_t",
+              "_name": "vy",
+              "__text": "Ground Y Speed (Longitude), expressed as m/s * 100"
+            },
+            {
+              "_type": "int16_t",
+              "_name": "vz",
+              "__text": "Ground Z Speed (Altitude), expressed as m/s * 100"
+            }
+          ],
+          "_id": "73",
+          "_name": "GLOBAL_POSITION_INT"
+        },
+        {
+          "description": "Metrics typically displayed on a HUD for fixed wing aircraft",
+          "field": [
+            {
+              "_type": "float",
+              "_name": "airspeed",
+              "__text": "Current airspeed in m/s"
+            },
+            {
+              "_type": "float",
+              "_name": "groundspeed",
+              "__text": "Current ground speed in m/s"
+            },
+            {
+              "_type": "int16_t",
+              "_name": "heading",
+              "__text": "Current heading in degrees, in compass units (0..360, 0=north)"
+            },
+            {
+              "_type": "uint16_t",
+              "_name": "throttle",
+              "__text": "Current throttle setting in integer percent, 0 to 100"
+            },
+            {
+              "_type": "float",
+              "_name": "alt",
+              "__text": "Current altitude (MSL), in meters"
+            },
+            {
+              "_type": "float",
+              "_name": "climb",
+              "__text": "Current climb rate in meters/second"
+            }
+          ],
+          "_id": "74",
+          "_name": "VFR_HUD"
+        },
+        {
+          "description": "Send a command with up to four parameters to the MAV",
+          "field": [
+            {
+              "_type": "uint8_t",
+              "_name": "target_system",
+              "__text": "System which should execute the command"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "target_component",
+              "__text": "Component which should execute the command, 0 for all components"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "command",
+              "__text": "Command ID, as defined by MAV_CMD enum."
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "confirmation",
+              "__text": "0: First transmission of this command. 1-255: Confirmation transmissions (e.g. for kill command)"
+            },
+            {
+              "_type": "float",
+              "_name": "param1",
+              "__text": "Parameter 1, as defined by MAV_CMD enum."
+            },
+            {
+              "_type": "float",
+              "_name": "param2",
+              "__text": "Parameter 2, as defined by MAV_CMD enum."
+            },
+            {
+              "_type": "float",
+              "_name": "param3",
+              "__text": "Parameter 3, as defined by MAV_CMD enum."
+            },
+            {
+              "_type": "float",
+              "_name": "param4",
+              "__text": "Parameter 4, as defined by MAV_CMD enum."
+            }
+          ],
+          "_id": "75",
+          "_name": "COMMAND"
+        },
+        {
+          "description": "Report status of a command. Includes feedback whether the command was executed",
+          "field": [
+            {
+              "_type": "float",
+              "_name": "command",
+              "__text": "Current airspeed in m/s"
+            },
+            {
+              "_type": "float",
+              "_name": "result",
+              "__text": "1: Action ACCEPTED and EXECUTED, 1: Action TEMPORARY REJECTED/DENIED, 2: Action PERMANENTLY DENIED, 3: Action UNKNOWN/UNSUPPORTED, 4: Requesting CONFIRMATION"
+            }
+          ],
+          "_id": "76",
+          "_name": "COMMAND_ACK"
+        },
+        {
+          "description": "Optical flow from a flow sensor (e.g. optical mouse sensor)",
+          "field": [
+            {
+              "_type": "uint64_t",
+              "_name": "time",
+              "__text": "Timestamp (UNIX)"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "sensor_id",
+              "__text": "Sensor ID"
+            },
+            {
+              "_type": "int16_t",
+              "_name": "flow_x",
+              "__text": "Flow in pixels in x-sensor direction"
+            },
+            {
+              "_type": "int16_t",
+              "_name": "flow_y",
+              "__text": "Flow in pixels in y-sensor direction"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "quality",
+              "__text": "Optical flow quality / confidence. 0: bad, 255: maximum quality"
+            },
+            {
+              "_type": "float",
+              "_name": "ground_distance",
+              "__text": "Ground distance in meters"
+            }
+          ],
+          "_id": "100",
+          "_name": "OPTICAL_FLOW"
+        },
+        {
+          "description": "Object has been detected",
+          "field": [
+            {
+              "_type": "uint32_t",
+              "_name": "time",
+              "__text": "Timestamp in milliseconds since system boot"
+            },
+            {
+              "_type": "uint16_t",
+              "_name": "object_id",
+              "__text": "Object ID"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "type",
+              "__text": "Object type: 0: image, 1: letter, 2: ground vehicle, 3: air vehicle, 4: surface vehicle, 5: sub-surface vehicle, 6: human, 7: animal"
+            },
+            {
+              "_type": "char[20]",
+              "_name": "name",
+              "__text": "Name of the object as defined by the detector"
+            },
+            {
+              "_type": "uint8_t",
+              "_name": "quality",
+              "__text": "Detection quality / confidence. 0: bad, 255: maximum confidence"
+            },
+            {
+              "_type": "float",
+              "_name": "bearing",
+              "__text": "Angle of the object with respect to the body frame in NED coordinates in radians. 0: front"
+            },
+            {
+              "_type": "float",
+              "_name": "distance",
+              "__text": "Ground distance in meters"
+            }
+          ],
+          "_id": "140",
+          "_name": "OBJECT_DETECTION_EVENT"
+        },
+        {
+          "field": [
+            {
+              "_type": "char[10]",
+              "_name": "name",
+              "__text": "Name"
+            },
+            {
+              "_type": "uint64_t",
+              "_name": "usec",
+              "__text": "Timestamp"
+            },
+            {
+              "_type": "float",
+              "_name": "x",
+              "__text": "x"
+            },
+            {
+              "_type": "float",
+              "_name": "y",
+              "__text": "y"
+            },
+            {
+              "_type": "float",
+              "_name": "z",
+              "__text": "z"
+            }
+          ],
+          "_id": "251",
+          "_name": "DEBUG_VECT"
+        },
+        {
+          "description": "Send a key-value pair as float. The use of this message is discouraged for normal packets, but a quite efficient way for testing new messages and getting experimental debug output.",
+          "field": [
+            {
+              "_type": "char[10]",
+              "_name": "name",
+              "__text": "Name of the debug variable"
+            },
+            {
+              "_type": "float",
+              "_name": "value",
+              "__text": "Floating point value"
+            }
+          ],
+          "_id": "252",
+          "_name": "NAMED_VALUE_FLOAT"
+        },
+        {
+          "description": "Send a key-value pair as integer. The use of this message is discouraged for normal packets, but a quite efficient way for testing new messages and getting experimental debug output.",
+          "field": [
+            {
+              "_type": "char[10]",
+              "_name": "name",
+              "__text": "Name of the debug variable"
+            },
+            {
+              "_type": "int32_t",
+              "_name": "value",
+              "__text": "Signed integer value"
+            }
+          ],
+          "_id": "253",
+          "_name": "NAMED_VALUE_INT"
+        },
+        {
+          "description": "Status text message. These messages are printed in yellow in the COMM console of QGroundControl. WARNING: They consume quite some bandwidth, so use only for important status and error messages. If implemented wisely, these messages are buffered on the MCU and sent only at a limited rate (e.g. 10 Hz).",
+          "field": [
+            {
+              "_type": "uint8_t",
+              "_name": "severity",
+              "__text": "Severity of status, 0 = info message, 255 = critical fault"
+            },
+            {
+              "_type": "int8_t[50]",
+              "_name": "text",
+              "__text": "Status text message, without null termination character"
+            }
+          ],
+          "_id": "254",
+          "_name": "STATUSTEXT"
+        },
+        {
+          "description": "Send a debug value. The index is used to discriminate between values. These values show up in the plot of QGroundControl as DEBUG N.",
+          "field": [
+            {
+              "_type": "uint8_t",
+              "_name": "ind",
+              "__text": "index of debug variable"
+            },
+            {
+              "_type": "float",
+              "_name": "value",
+              "__text": "DEBUG value"
+            }
+          ],
+          "_id": "255",
+          "_name": "DEBUG"
+        }
+      ]
+    }
+  }
+}

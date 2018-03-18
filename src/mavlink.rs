@@ -1,0 +1,1 @@
+struct Altitude { value : "u8" } struct Gps { value : "u8" } struct Gyro { value : "u8" }
